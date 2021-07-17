@@ -1,20 +1,105 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end" >
+      <ion-button (click)="routeSaved()"><ion-icon name="bookmarks" style="color:
+        #faf8f8"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start" >
+      <ion-button (click)="presentSheet()"><ion-icon name="options" style="color:
+        #faf8f8"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title class="font-custom" style="text-align: center;color:
+    #faf8f8;font-family:'Times New Roman', Times, serif">
+      LegalAstro
     </ion-title>
+    
   </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-item style="color:#303090 !important;background-color:#303090 !important;--background:#303090 !important;">
+      <ion-input style="font-family:'Times New Roman', Times, serif;color:#faf8f8;background:#303090;background-color:#303090 !important;"
+
+      (keyup.enter)="getData(stock)"
+        type="text"
+        [(ngModel)]="stock"
+        (ionChange)="setFilteredItems(stock)"
+        placeholder="Enter Article Specific Keyword(s)"
+        minlength="3"
+       
+        enterKeyHint="enter"
+      ></ion-input>
+      <ion-icon name="search" style="padding-right:5px;color:
+      #faf8f8" class="icontwo"slot="end"
+		(click)="getData()"></ion-icon>
+    </ion-item>
+  </ion-toolbar>
+  
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="wrapper">
+  
+  <!-- <ion-button (click)="openTwitter(article)">Twitter</ion-button> -->
+  <ion-slides scrollbar="true" [options]="slideOpts"  mode="ios">
+    <ion-slide  *ngFor="let article of newsFeed">
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button style="--background:white !important;" (click)="addToSaved(article.ArticleId)">
+          <ion-icon *ngIf="isSaved(article.ArticleId)" name="bookmark" style="color:#303090"></ion-icon>
+          <ion-icon *ngIf="!isSaved(article.ArticleId)" name="bookmark" style="color:#82c8e4"></ion-icon>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+        </ion-fab-button>
+      </ion-fab>
+      <ion-fab vertical="top" horizontal="start" slot="fixed">
+        <ion-fab-button style="--background:white !important;" (click)="shareArticle(article.ImageUrl,article.Heading,article.Body)">
+          <ion-icon  name="share-social" style="color:#303090"></ion-icon>
+
+        </ion-fab-button>
+      </ion-fab>
+     
+
+  <ion-card style="width:100%;">
+    
+    <img  [src]="article.ImageUrl" (load)="updateCounter()" style="width:100%">
+    
+    <ion-card-header>
+      <ion-card-title class="font-custom" style="text-align:center; font-size: larger;font-family:'Times New Roman', Times, serif" >{{(article.Heading)}}</ion-card-title>
+      <ion-card-subtitle class="font-custom"  style="text-align: center;text-transform: capitalize;padding-top:1%;font-family:'Times New Roman', Times, serif"> {{article.Source}} dated {{article.Dated}}</ion-card-subtitle>
+
+    </ion-card-header>
+    <ion-card-content>
+     
+     
+      
+      
+      <!-- <p class="font-custom" style="text-align:center;padding-top:1%">{{styleHeads(article.interests)}}</p> -->
+
+      <p class="font-custom" style="text-align: left;padding-top:1%;font-family:'Times New Roman', Times, serif">{{article.Body}}</p>
+      <ion-chip *ngFor="let i of article.types" color="secondary">
+        <ion-label  color="dark" style="font-family:'Times New Roman', Times, serif">{{replacer(i)}}</ion-label>
+      </ion-chip>
+      <!-- <p class="font-custom" style="text-align:center;"> </p> -->
+      <ion-chip *ngFor="let i of article.interests" color="secondary">
+        <ion-label  color="dark" style="font-family:'Times New Roman', Times, serif">{{replacer(i)}}</ion-label>
+      </ion-chip>
+     
+     
+      <ion-button *ngIf="article.fullArticle && article.fullArticle!=''"  color="success" expand="block" (click)="openWeb(article.fullArticle)" style="text-transform:capitalize;font-family:'Times New Roman', Times, serif">Read Full Article</ion-button>
+
+     <ion-button color="tertiary"  expand="block" (click)="openWeb(article.Link)" style="text-transform:capitalize;font-family:'Times New Roman', Times, serif"><p style="color:#303090">Source Link</p></ion-button>
+    
+     <ion-button class="button-custom"  *ngIf="article.PdfUrl0!=''" expand="block" (click)="dynamicActionSheet(article,article.numPdf)" style="text-transform:capitalize;font-family:'Times New Roman', Times, serif">Download PDF</ion-button>
+     <a class="button-custom"   expand="block" routerLink="/contact" style="text-transform:capitalize;text-decoration:none;font-family:'Times New Roman', Times, serif">Publisher's Contact</a>
+
+    </ion-card-content>
+  </ion-card>
+  </ion-slide>
+  </ion-slides>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing Feed...">
+    </ion-refresher-content>
+  </ion-refresher>
+ 
 </ion-content>

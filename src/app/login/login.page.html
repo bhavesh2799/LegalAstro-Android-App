@@ -1,0 +1,53 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title style="text-align: center;">
+      LegalAstro
+        </ion-title>
+  </ion-toolbar>
+  
+</ion-header>
+<ion-content class="wrapper">
+ 
+  
+   
+          <ion-card style="margin-top:10%">
+            <ion-card-header>
+            <ion-card-title style="text-align: center;font-family:'Times New Roman', Times, serif">Login</ion-card-title>
+            </ion-card-header>
+        
+            <ion-card-content>
+              <ion-list>
+                <ion-item style="font-family:'Times New Roman', Times, serif">
+                  <ion-label position="stacked">Email</ion-label>
+                  <ion-input [(ngModel)]="email" type="text"></ion-input>
+                </ion-item>
+        
+               
+        
+                <ion-item style="font-family:'Times New Roman', Times, serif">
+                  <ion-label position="stacked">Password</ion-label>
+                  <ion-input [(ngModel)]="password" type="password"></ion-input>
+                </ion-item>
+        
+              
+        
+                
+              </ion-list>
+            </ion-card-content>
+        
+          </ion-card>
+          <ion-button expand="block" shape="round" color="primary" (click)="login()" style="text-transform: capitalize;font-family:'Times New Roman', Times, serif">Login</ion-button>
+          <div style=" text-align: center;">
+            <p>Not a member?<a (click)="register()" style="padding-left:5px;color:#f0f0f0;font-family:'Times New Roman', Times, serif">Register Now!</a></p>
+            
+          </div>
+          <div style=" text-align: center;">
+            <a (click)="forgot()" style="color:#f0f0f0;font-family:'Times New Roman', Times, serif">Forgot password?</a>
+            <br>
+          </div>
+        
+
+       
+  
+</ion-content>

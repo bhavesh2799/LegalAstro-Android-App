@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "393285276005",
+    "firebase_url": "https://legully-news-genie-default-rtdb.firebaseio.com",
+    "project_id": "legully-news-genie",
+    "storage_bucket": "legully-news-genie.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:393285276005:android:d7eb443f79f47ca5c5118c",
+        "android_client_info": {
+          "package_name": "com.legully.genienews"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "393285276005-qfksm4ao2br32q3defdhnca1teupud5t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.legully.genienews",
+            "certificate_hash": "9b529db7f784e63b3195d4ea5009f54e336e623a"
+          }
+        },
+        {
+          "client_id": "393285276005-i5cd4o7qesrvukgiuqes9vso5dkhoqvi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrceiXrhnXCrIBEZrJPeDD5UyOH9O3XIs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "393285276005-i5cd4o7qesrvukgiuqes9vso5dkhoqvi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,141 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" style="color:
+    
+#faf8f8">
+      <ion-back-button ></ion-back-button>
+    </ion-buttons>
+  
+    <ion-title class="font-custom" style="text-align: left;color:
+    
+#faf8f8;font-family:'Times New Roman', Times, serif">
+      Filter your Feed
+    </ion-title>
+  </ion-toolbar>
+  </ion-header>
+
+<ion-content class="wrapper">
+  
+
+  <ion-slides pager="true" [options]="slideOpts"  mode="ios">
+    <ion-slide>
+      
+      <ion-list style="width:100%;font-family:'Times New Roman', Times, serif;color:#303090" >
+          <ion-radio-group  [(ngModel)]="category" mode="ios" style="width:100%">
+            <ion-list-header style="color:#303090">
+              <ion-label>Select Your Category</ion-label>
+            </ion-list-header>
+        
+            <ion-item style="color:#303090">
+              <ion-label>Professional</ion-label>
+              <ion-radio slot="end" value="pro"></ion-radio>
+            </ion-item>
+        
+            <ion-item style="color:#303090">
+              <ion-label>Businessman</ion-label>
+              <ion-radio slot="end" value="bus"></ion-radio>
+            </ion-item>
+        
+            <ion-item style="color:#303090">
+              <ion-label>Startup</ion-label>
+              <ion-radio slot="end" value="sta"></ion-radio>
+            </ion-item>
+            <ion-item style="color:#303090">
+              <ion-label>Accountant</ion-label>
+              <ion-radio slot="end" value="acc"></ion-radio>
+            </ion-item>
+            <ion-item style="color:#303090">
+              <ion-label>Others</ion-label>
+              <ion-radio slot="end" value="oth"></ion-radio>
+            </ion-item>
+
+          </ion-radio-group>
+          <ion-button (click)="routerHome()" style="font-family:'Times New Roman', Times, serif" expand="block">Skip Filters</ion-button>
+
+        </ion-list>
+    </ion-slide>
+    <ion-slide>
+      <ion-list  style="width:100%;font-family:'Times New Roman', Times, serif;color:#303090">
+
+      <ion-list-header style="color:#303090">
+        <ion-label>Laws of Interest</ion-label>
+      </ion-list-header>
+      <!-- <ion-item>
+        <ion-label>Select All</ion-label>
+        <ion-checkbox slot="end" mode="ios" (click)="selectAll(interests)"></ion-checkbox>
+      </ion-item> -->
+      <ion-item style="color:#303090">
+      <ion-label>Select Laws</ion-label>
+
+      <ionic-selectable
+      style="color:#303090"
+      slot="end"
+      item-content 
+      [(ngModel)]="interest"
+      [isMultiple]="true"
+      [items]="interests"
+      itemValueField="id"
+      itemTextField="val"
+      [canSearch]="true"
+      (onChange)="portChange($event)">
+      </ionic-selectable>
+    </ion-item>
+        
+    <ion-button expand="block" style="font-family:'Times New Roman', Times, serif" (click)="updateFilters()">Continue</ion-button>
+      </ion-list>
+    </ion-slide>
+     <!-- <ion-slide>
+       
+        <ion-list style="width:100%" scrollable>
+
+          <ion-list-header>
+            <ion-label>States and Union Territories Specific Information</ion-label>
+          </ion-list-header>
+          
+  <ion-item *ngIf="!isAll">
+    <ion-label>Select States and UTs</ion-label>
+
+    <ionic-selectable
+    slot="end"
+    item-content 
+    [(ngModel)]="port"
+    [isMultiple]="true"
+    [items]="states"
+    itemValueField="id"
+    itemTextField="val"
+    [canSearch]="true"
+    (onChange)="portChange($event)">
+    </ionic-selectable>
+  </ion-item>
+  <ion-item>
+    <ion-label>Select All</ion-label>
+    <ion-checkbox slot="end" mode="ios" (click)="selectingAllStates()"></ion-checkbox>
+  </ion-item>
+  
+          
+          </ion-list>
+     
+    </ion-slide> -->
+    <!-- <ion-slide>
+      <ion-list style="width:100%">
+
+      <ion-list-header>
+        <ion-label>Types of Information</ion-label>
+      </ion-list-header>
+     
+        <ion-item *ngFor="let entry of types">
+          <ion-label>{{entry.val}}</ion-label>
+          <ion-checkbox slot="end" mode="ios" [(ngModel)]="entry.isChecked"></ion-checkbox>
+        </ion-item>
+        <ion-button expand="block" (click)="updateFilters()">Continue</ion-button>
+
+
+      </ion-list>
+
+
+
+    </ion-slide> -->
+
+  </ion-slides>
+  
+</ion-content>

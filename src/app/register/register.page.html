@@ -1,0 +1,64 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    
+    <ion-title style="text-align: center;">
+      LegalAstro
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="wrapper">
+  <!-- <ion-button expand="block" routerLink="/filters">Filters</ion-button> -->
+  
+
+  
+        <ion-card style="margin-top:10%">
+          <ion-card-header>
+          <ion-card-title style="text-align: center;font-family:'Times New Roman', Times, serif;">Register</ion-card-title>
+          </ion-card-header>
+      
+          <ion-card-content>
+            <ion-list>
+              
+              <ion-item style="font-family:'Times New Roman', Times, serif">
+                <ion-label position="stacked">User Name</ion-label>
+                <ion-input [(ngModel)]="name" type="text"></ion-input>
+              </ion-item>
+      
+              <ion-item style="font-family:'Times New Roman', Times, serif">
+                <ion-label position="stacked">Email</ion-label>
+                <ion-input [(ngModel)]="email" type="text"></ion-input>
+              </ion-item>
+      
+              <ion-item style="font-family:'Times New Roman', Times, serif">
+                <ion-label position="stacked">Password</ion-label>
+                <ion-input [(ngModel)]="password" type="password"></ion-input>
+              </ion-item>
+      
+              <ion-item style="font-family:'Times New Roman', Times, serif">
+                <ion-label position="stacked">Confirm Password</ion-label>
+                <ion-input [(ngModel)]="confirmPassword" type="password" (ionChange)="checkPassword()"></ion-input>
+                <ion-text *ngIf='password && !passwordMatch' color='danger'>Password do not match!</ion-text>
+                <ion-text *ngIf='password && passwordMatch' color='success'>Password match</ion-text>
+              </ion-item>
+              <ion-item style="font-family:'Times New Roman', Times, serif">
+                <ion-label >Subscribe to our Newsletter</ion-label>
+                <ion-checkbox [(ngModel)]="isSubscribed" ></ion-checkbox>
+              </ion-item>
+
+      
+              
+            </ion-list>
+          </ion-card-content>
+      
+        </ion-card>
+        <ion-button style="text-transform: capitalize;font-family:'Times New Roman', Times, serif" [disabled]='!passwordMatch || !name' expand="block" shape="round" color="primary" (click)="register()">Register</ion-button>
+        
+        <div style="padding: 20px; text-align: center;">
+          
+          <p>Already Registered? <a (click)="redirectLogin()" style="color:#f0f0f0;font-family:'Times New Roman', Times, serif">Go to Login</a></p>
+        </div>
+      
+      
+  
+</ion-content>

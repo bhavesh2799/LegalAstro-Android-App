@@ -1,0 +1,101 @@
+#container {
+    text-align: center;
+  
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  #container strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  #container p {
+    font-size: 16px;
+    line-height: 22px;
+  
+    color: #8c8c8c;
+  
+    margin: 0;
+  }
+  
+  #container a {
+    text-decoration: none;
+  }
+  ion-content.wrapper{
+    --background: #719fb0;
+    --background: #303090;
+  }
+  .custom-shape-divider-top-1618552419 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+  
+  .custom-shape-divider-top-1618552419 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+  }
+  
+  .custom-shape-divider-top-1618552419 .shape-fill {
+    fill: #00587a;
+  }
+  
+  .button-custom{
+    text-transform: capitalize;
+    --color:#00587a !important;
+    --background: #e7e7de !important;
+    font-size: medium;
+  }
+  .button1{
+    --background: #25D366 !important;
+    font-size: medium;
+
+  }
+  .button2{
+    --background: #4267B2 !important;
+    font-size: medium;
+
+  }
+  .button3{
+    --background: linear-gradient(45deg, #405DE6,#5851DB,#833AB4,#C13584,#E1306C,#FD1D1D) !important;
+    font-size: medium;
+
+  }
+  .button4{
+    --background: #e7e7de !important;
+    font-size: medium;
+
+  }
+  .button5{
+      --background: #1DA1F2 !important;
+      font-size:medium; 
+  }
+  .button6{
+    --background:  #00587a !important;
+    font-size: medium;
+
+  }
+
+  .font-custom{
+    font-family:'Segoe UI';
+   
+  
+  }
+  .custom-toolbar{
+    --background: linear-gradient(90deg, #e7e7de 0%,#00587a 25%,#00587a 75%, #e7e7de 100%);
+  }
+  .icontwo{
+    color: white;
+  }
+  ion-slides {
+    height: auto;
+  }

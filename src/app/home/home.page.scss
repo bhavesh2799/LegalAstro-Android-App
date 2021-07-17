@@ -25,3 +25,49 @@
 #container a {
   text-decoration: none;
 }
+ion-content.wrapper{
+  --background: #719fb0;
+  --background: #303090;
+}
+.custom-shape-divider-top-1618552419 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1618552419 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 150px;
+}
+
+.custom-shape-divider-top-1618552419 .shape-fill {
+  fill: #00587a;
+}
+.button-custom{
+  text-transform: capitalize;
+  --color:#2e3c6d !important;
+  --background: #e7e7de !important;
+  font-size: medium;
+}
+.font-custom{
+  font-family:'Segoe UI';
+ 
+
+}
+.custom-toolbar{
+  --background: #2e3c6d;
+}
+.icontwo{
+  color:
+  #faf8f8;
+}
+ion-slides {
+  height: auto;
+  width: auto;
+}
+

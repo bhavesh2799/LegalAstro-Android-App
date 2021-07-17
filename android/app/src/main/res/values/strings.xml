@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">LegalAstro</string>
+    <string name="title_activity_main">LegalAstro</string>
+    <string name="package_name">com.legully.genienews</string>
+    <string name="custom_url_scheme">com.legully.genienews</string>
+  <string name="facebook_app_id">372431624189366</string>
+</resources>
