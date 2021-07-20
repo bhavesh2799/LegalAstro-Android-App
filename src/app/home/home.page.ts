@@ -205,13 +205,15 @@ updateCounter() {
                }
         })}).then(()=>{
           this.presentLoadingText()
-            let userDoc = this.afs.firestore.collection(`articles`);
+            let userDoc = this.afs.firestore.collection(`articles`).orderBy('ArticleId','desc').limit(50);
+            
     userDoc.get().then((querySnapshot) => { 
       
       
         
      
       querySnapshot.forEach((doc) => {
+        //All articles one by one
 
         // Article Selection: User Type
         if(this.flag==1){
